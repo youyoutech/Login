@@ -46,7 +46,7 @@ export default class ExercisesList extends Component {
             }else{
                 this.setState({
                     error: res.data.error
-                });
+                })
             }
         });
     }
@@ -59,7 +59,8 @@ export default class ExercisesList extends Component {
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Email: </label>
-                        <input type="text"
+                        <input id="emailInput"
+                        type="text"
                         required
                         className="form-control"
                         value={this.state.email}
@@ -67,17 +68,20 @@ export default class ExercisesList extends Component {
                     </div>
                     <div className="form-group">
                         <label>Password: </label>
-                        <input type="password"
+                        <input id="passwordInput"
+                        type="password"
                         required
                         className="form-control"
                         value={this.state.password}
                         onChange={this.onChangePassword}/>
                     </div>
 
-                    <p className="text-danger">{this.state.error}</p>
+                    {this.state.error.length > 0 &&
+                        <p id="error" className="text-danger">{this.state.error}</p>
+                    }
 
                     <div className="form-group">
-                        <input type="submit" value="Login" className="btn btn-primary"/>
+                        <input id="submitBtn" type="submit" value="Login" className="btn btn-primary"/>
                     </div>
                 </form>
             </div>
