@@ -8,6 +8,14 @@ let User = require('../models/User')
 
 route.use(cors())
 
+route.delete('/delete', (req, res) => {
+    User.findOneAndDelete({
+        email: req.body.email
+    })
+    .then(() => res.json('A user has been deleted'))
+    .catch(err => res.status(400).json('Error: ' + err));
+})
+
 route.post('/register', (req, res) => {
     const userData = {
         email: req.body.email,

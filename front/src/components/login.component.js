@@ -76,7 +76,7 @@ export default class ExercisesList extends Component {
                         onChange={this.onChangePassword}/>
                     </div>
 
-                    {this.state.error.length > 0 &&
+                    {this.state.error &&
                         <p id="error" className="text-danger">{this.state.error}</p>
                     }
 

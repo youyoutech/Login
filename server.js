@@ -11,7 +11,8 @@ var port = process.env.PORT || 4000
 app.use(express.json())
 app.use(cors())
 
-const uri = "mongodb+srv://youyouta:zwhDp4yGxgOlEdUo@cluster0-iglw6.gcp.mongodb.net/test1?retryWrites=true&w=majority"
+const uri = "mongodb://127.0.0.1:27017/loginTest"
+
 
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true});
 const connection = mongoose.connection;
